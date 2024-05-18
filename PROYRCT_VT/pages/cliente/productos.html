@@ -23,7 +23,7 @@
       referrerpolicy="no-referrer"
     />
   </head>
-  <body class="hidden">
+  <body>
     <header class="header-bg">
       <!-- barra de navegación -->
       <nav class="navbar navbar-expand-lg">
@@ -92,7 +92,7 @@
               </a>
             </li>
             <li class="nav-item navbar-nav icono">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="/pages/cliente/carrito.html">
                 <i class="fa-solid fa-cart-shopping car"></i>
               </a>
             </li>
@@ -103,103 +103,7 @@
 
     <main>
       <!-- productos -->
-      <div class="container">
-        <div class="product">
-          <img src="/img/Asus.jpg" alt="Producto 1" />
-          <h2>Portátil Asus E1504fa-nj474</h2>
-          <p class="price">$2.000.000</p>
-          <button>Añadir al carrito</button>
-        </div>
-
-        <div class="product oferta">
-          <img src="/img/impresora 1.jpeg" alt="Producto 2" />
-          <h2>Impresora Canon Pixma G3110</h2>
-          <p class="price">
-            <span class="precioAntiguo">$650.000</span> $599.900
-          </p>
-          <button>Añadir al carrito</button>
-        </div>
-
-        <div class="product">
-          <img src="/img/torreGamer.jpg" alt="Producto 2" />
-          <h2>Torre Gamer Rgb Amd Ryzen 5</h2>
-          <p class="price">$1.600.000</p>
-          <button>Añadir al carrito</button>
-        </div>
-
-        <div class="product oferta">
-          <img src="/img/tecladoPop.jpg" alt="Producto 2" />
-          <h2>Teclado Logitech POP Inalámbric</h2>
-          <p class="price">
-            <span class="precioAntiguo">$375.000</span> 325.000
-          </p>
-          <button>Añadir al carrito</button>
-        </div>
-      </div>
-
-      <div class="container">
-        <div class="product">
-          <img src="/img/audifonosOver.jpg" alt="Producto 1" />
-          <h2>Audifonos JBL Tune 500</h2>
-          <p class="price">$99.900</p>
-          <button>Añadir al carrito</button>
-        </div>
-
-        <div class="product">
-          <img src="/img/pc escritorio.jpg" alt="Producto 2" />
-          <h2>Todo en Uno HP</h2>
-          <p class="price">$2.899.900</p>
-          <button>Añadir al carrito</button>
-        </div>
-
-        <div class="product oferta">
-          <img src="/img/escritorio.jpg" alt="Producto 2" />
-          <h2>Pc Escritorio Celeron Dual Core</h2>
-          <p class="price">
-            <span class="precioAntiguo">$1.360.000</span> $1.900.999
-          </p>
-          <button>Añadir al carrito</button>
-        </div>
-
-        <div class="product">
-          <img src="/img/game venta3.jpeg" alt="Producto 2" />
-          <h2>Copmbo Gamer</h2>
-          <p class="price">$84.200</p>
-          <button>Añadir al carrito</button>
-        </div>
-      </div>
-
-      <div class="container">
-        <div class="product">
-          <img src="/img/sporteportatil.jpg" alt="Producto 1" />
-          <h2>Soporte Elevador Portátil</h2>
-          <p class="price">$20.000</p>
-          <button>Añadir al carrito</button>
-        </div>
-
-        <div class="product">
-          <img src="/img/router.jpg" alt="Producto 2" />
-          <h2>Router F3 inalámbrico 300 Mbps</h2>
-          <p class="price">$65.000</p>
-          <button>Añadir al carrito</button>
-        </div>
-
-        <div class="product oferta">
-          <img src="/img/switch.jpg" alt="Producto 2" />
-          <h2>Switch 5 puertos TPLINK</h2>
-          <p class="price">
-            <span class="precioAntiguo">$53.900</span> $45.000
-          </p>
-          <button>Añadir al carrito</button>
-        </div>
-
-        <div class="product">
-          <img src="/img/adaptador-usb.jpg" alt="Producto 2" />
-          <h2>Adapt. Usb lan Ethernet usb 2.0</h2>
-          <p class="price">$30.000</p>
-          <button>Añadir al carrito</button>
-        </div>
-      </div>
+      <div class="container" id="products-container"></div>
     </main>
     <!-- footer -->
     <footer>
@@ -223,5 +127,6 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
+    <script type="module" src="../../js/client/products.js"></script>
   </body>
 </html>
