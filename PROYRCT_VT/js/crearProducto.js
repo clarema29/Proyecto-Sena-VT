@@ -17,7 +17,7 @@ document.getElementById('registroProducto').addEventListener('submit', function(
     const descripcion = document.getElementById('descripcion').value;
     const cantidad = document.getElementById('cantidad').value;
     const precio = document.getElementById('precio').value;
-    const imagen = document.getElementById('imagen').value;
+    const imagen = document.getElementById('imagen').src;
     const categoriaEnum = document.getElementById('categoriaEnum').value;
    
     // Verificar si se está creando un nuevo producto o editando uno existente

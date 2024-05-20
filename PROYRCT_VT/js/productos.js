@@ -43,7 +43,7 @@ function mostrarProductos(productos) {
             <td>${producto.descripcion}</td>
             <td>${producto.cantidad}</td>
             <td>${producto.precio}</td>
-            <td>${producto.imagen}</td>
+            <td><img src="${producto.imagen}" alt="${producto.nombre}" style="max-width: 100px; max-height: 100px;"></td>
             <td>${producto.categoriaEnum}</td>
             <td><a href="/pages/administrador/crearProductos.html?id=${producto.id}" class="button btn-warning btn-lg" id="editar">Editar</a></td>
             <td><a href="#" class="button btn-danger btn-lg" onclick="eliminarProducto(${producto.id})">Eliminar</a></td>
