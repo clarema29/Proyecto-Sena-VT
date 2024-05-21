@@ -63,9 +63,18 @@ const createProductCard = ({
     addButton.className = "btn btn-success";
     addButton.disabled = true;
   }
+  if (cantidad < 1) addButton.disabled = true;
 
   addButton.addEventListener("click", () => {
-    handleClick({ id, imagen, nombre, descripcion, precio, cantidad });
+    handleClick({
+      id,
+      imagen,
+      nombre,
+      descripcion,
+      precio,
+      cantidad,
+      cifra: 1,
+    });
     addButton.textContent = "Agregado al carrito";
     addButton.className = "btn btn-success";
     addButton.disabled = true;

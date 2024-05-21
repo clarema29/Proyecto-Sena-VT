@@ -16,12 +16,22 @@ export const removeFromCart = (productId) => {
   location.reload();
 };
 
+const changeQuantity = (product) => {
+  const productsList = JSON.parse(localStorage.getItem("products")) || [];
+  console.log({ productsList, product });
+  const newList = productsList.filter((item) => item.id !== product.id);
+  newList.push(product);
+  localStorage.setItem("products", JSON.stringify(newList));
+  location.reload();
+};
+
 const createProductCard = ({
   id,
   imagen,
   nombre,
   descripcion,
   precio,
+  cifra,
   cantidad,
 }) => {
   // Crear los elementos según la nueva estructura
@@ -65,21 +75,69 @@ const createProductCard = ({
   flexRow2.className = "d-flex flex-row align-items-center";
 
   const quantityContainer = document.createElement("div");
-  quantityContainer.style.width = "50px";
-  const quantity = document.createElement("h5");
-  quantity.className = "fw-normal mb-0";
-  quantity.textContent = cantidad;
+  quantityContainer.style.width = "60px";
+  quantityContainer.style.display = "flex";
+  quantityContainer.className = "def-number-input number-input safari_only";
+  const quantity = document.createElement("input");
+  quantity.type = "number";
+  quantity.className = "mb-0 quantity fw-bold";
+  quantity.style.width = "40px";
+  quantity.style.border = "none";
+  quantity.min = 0;
+  quantity.max = cantidad;
+  quantity.setAttribute("data-id", `quantity-${id}`);
+  quantity.name = "quantity";
+  quantity.value = cifra;
+  const addButton = document.createElement("button");
+  addButton.className = "btn btn-light plus mb-0 p-0";
+  addButton.style.background = "transparent";
+  addButton.style.color = "black";
+  addButton.textContent = "+";
+  addButton.setAttribute("data-id", id);
+
+  const handlePlusQuantity = () => {
+    if (Number(quantity.value) >= cantidad) {
+      addButton.disabled = true;
+      return;
+    }
+    quantity.value = Number(quantity.value) + 1;
+    changeQuantity({
+      id,
+      imagen,
+      nombre,
+      descripcion,
+      precio,
+      cantidad,
+      cifra: Number(quantity.value),
+    });
+  };
+  addButton.addEventListener("click", () => {
+    handlePlusQuantity();
+  });
+
+  quantity.addEventListener("change", () => {
+    changeQuantity({
+      id,
+      imagen,
+      nombre,
+      descripcion,
+      precio,
+      cantidad,
+      cifra: Number(quantity.value),
+    });
+  });
   quantityContainer.appendChild(quantity);
+  quantityContainer.appendChild(addButton);
 
   const priceContainer = document.createElement("div");
   priceContainer.style.width = "100px";
   const priceEl = document.createElement("h5");
   priceEl.className = "mb-0";
-  priceEl.textContent = "$" + precio;
+  priceEl.textContent = "$" + precio * cifra;
   priceContainer.appendChild(priceEl);
 
   const deleteProduct = document.createElement("button");
-  deleteProduct.className = "btn btn-light";
+  deleteProduct.className = "btn btn-light mb-0";
   deleteProduct.style.background = "transparent";
   deleteProduct.style.color = "red";
   deleteProduct.style.width = "20px";
@@ -105,6 +163,7 @@ const createProductCard = ({
 };
 
 const fillList = (node) => {
+  const productsList = JSON.parse(localStorage.getItem("products")) || [];
   if (!node) return;
 
   productsList.forEach((product) => {
@@ -115,7 +174,7 @@ const fillList = (node) => {
 
 const calculateTotalPrice = (products) => {
   return products.reduce((total, product) => {
-    return total + product.precio * product.cantidad;
+    return total + product.precio * product.cifra;
   }, 0);
 };
 
