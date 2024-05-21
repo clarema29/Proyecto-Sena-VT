@@ -36,10 +36,10 @@ function obtenerDetallesProducto() {
         document.getElementById('precio').value = data.precio;
         document.getElementById('categoriaEnum').value = data.categoriaEnum;
         // Mostrar la imagen del producto si está disponible
-        if (data.imagen) {
+       // if (data.imagen) {
             // Suponiendo que tienes un elemento <img> con ID "imagen"
             document.getElementById('imagen').src = data.imagen;
-        }
+       // }
         document.getElementById('crear-producto').innerText = "Editar";
         document.getElementById('titulo-form').innerText = "Editar Producto";
         
